@@ -1,0 +1,2 @@
+class CoordinateService:
+    pass
