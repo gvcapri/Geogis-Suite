@@ -1,5 +1,11 @@
 # GEOGIS Suite - Arquitetura (Project-Centric)
 
+## Padrões Adotados (Implementados na Sprint 01)
+- **Clean Architecture & SOLID**: Separação clara em `src/core`, `src/ui`, `src/modules`.
+- **Event-Driven & Dependency Injection**: Padrões implementados no `EventBus` e `JobManager`.
+- **Plugin Architecture**: Sistema de roteamento dinâmico via `NavigationManager` e `PluginLoader`.
+- **UI Premium (Single-Window)**: Utilização de `QStackedWidget` centralizado via `MainWindow` unificada com painéis dinâmicos (`GeoSidebar`, `GeoHeader`, `GeoStatusBar`).
+
 ## Visão Geral
 O GEOGIS Suite é uma plataforma corporativa modular voltada para Engenharia, Geoprocessamento e Regularização Fundiária. 
 Nenhuma funcionalidade de negócio será implementada de forma isolada; tudo gira em torno de um **Projeto**.

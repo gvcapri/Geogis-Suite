@@ -113,3 +113,63 @@ class RecentFile(Base):
     id = Column(Integer, primary_key=True, index=True)
     file_path = Column(String, nullable=False)
     opened_at = Column(DateTime, default=datetime.utcnow)
+
+# --- Comparisons Module Entities ---
+
+class ComparisonTemplate(Base):
+    __tablename__ = 'comparison_templates'
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, nullable=False)
+    comparison_type = Column(String, nullable=False)
+    settings = Column(Text) # JSON string
+    is_favorite = Column(Boolean, default=False)
+
+class Comparison(Base):
+    __tablename__ = 'comparisons'
+    id = Column(Integer, primary_key=True, index=True)
+    project_id = Column(Integer, ForeignKey('projects.id'))
+    template_id = Column(Integer, ForeignKey('comparison_templates.id'), nullable=True)
+    name = Column(String, nullable=False)
+    comparison_type = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    project = relationship("Project")
+    template = relationship("ComparisonTemplate")
+    executions = relationship("ComparisonExecution", back_populates="comparison", cascade="all, delete-orphan")
+
+class ComparisonExecution(Base):
+    __tablename__ = 'comparison_executions'
+    id = Column(Integer, primary_key=True, index=True)
+    comparison_id = Column(Integer, ForeignKey('comparisons.id'))
+    user_id = Column(Integer, ForeignKey('users.id'))
+    status = Column(String, default="pending") # pending, running, completed, error
+    started_at = Column(DateTime, default=datetime.utcnow)
+    completed_at = Column(DateTime, nullable=True)
+    
+    comparison = relationship("Comparison", back_populates="executions")
+    user = relationship("User")
+    result = relationship("ComparisonResult", back_populates="execution", uselist=False, cascade="all, delete-orphan")
+
+class ComparisonResult(Base):
+    __tablename__ = 'comparison_results'
+    id = Column(Integer, primary_key=True, index=True)
+    execution_id = Column(Integer, ForeignKey('comparison_executions.id'))
+    duration_seconds = Column(Integer, nullable=True)
+    discrepancies_count = Column(Integer, default=0)
+    summary = Column(Text) # JSON string with detailed counts
+    report_path = Column(String, nullable=True)
+    observations = Column(Text, nullable=True)
+    
+    execution = relationship("ComparisonExecution", back_populates="result")
+
+class ComparisonHistory(Base):
+    __tablename__ = 'comparison_history'
+    id = Column(Integer, primary_key=True, index=True)
+    comparison_id = Column(Integer, ForeignKey('comparisons.id'))
+    user_id = Column(Integer, ForeignKey('users.id'))
+    action = Column(String, nullable=False) # created, executed, approved, deleted
+    details = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    
+    comparison = relationship("Comparison")
+    user = relationship("User")

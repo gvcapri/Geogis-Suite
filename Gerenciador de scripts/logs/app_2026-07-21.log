@@ -1,0 +1,18 @@
+2026-07-21 14:20:31,359 - root - INFO - Sistema de logs inicializado.
+2026-07-21 14:20:31,359 - root - INFO - Iniciando Gerenciador de Scripts Geogis...
+2026-07-21 14:20:33,868 - backend.core.registry - INFO - Ferramenta registrada: SHP x Métrica (Comparativos)
+2026-07-21 14:20:33,869 - backend.core.registry - INFO - Ferramenta registrada: Métrica x Memorial de Lotes (Comparativos)
+2026-07-21 14:20:33,869 - backend.core.registry - INFO - Ferramenta registrada: Frente dos lotes - Memorial x SHP (Comparativos)
+2026-07-21 14:20:33,869 - backend.core.registry - INFO - Ferramenta registrada: Ecoleta x SHP (Comparativos)
+2026-07-21 14:20:33,870 - backend.core.registry - INFO - Ferramenta registrada: Planilha Métrica - Métrica x Memorial (Comparativos)
+2026-07-21 14:20:33,870 - backend.core.registry - INFO - Ferramenta registrada: CRF x SHP (Comparativos)
+2026-07-21 14:20:33,870 - backend.core.registry - INFO - Ferramenta registrada: CRF x Memorial de Lotes (Comparativos)
+2026-07-21 14:20:33,871 - backend.core.registry - INFO - Ferramenta registrada: Assinatura e Logo em Lote (PDF) (PDF)
+2026-07-21 14:20:33,871 - backend.core.registry - INFO - Ferramenta registrada: Formatador de Espaçamento MD (Formatação)
+2026-07-21 14:20:33,871 - backend.core.registry - INFO - Ferramenta registrada: Gerador Automático de MD (Formatação)
+2026-07-21 14:20:33,871 - backend.core.registry - INFO - Ferramenta registrada: Gerar Memorial Tabular (Perímetro) (Formatação)
+2026-07-21 14:20:33,872 - backend.core.registry - INFO - Ferramenta registrada: Gerar Memorial Tabular (Lotes) (Formatação)
+2026-07-21 14:20:33,872 - backend.core.registry - INFO - Ferramenta registrada: Organizar Memoriais (DOCX) (Formatação)
+2026-07-21 14:20:33,872 - backend.core.registry - INFO - Ferramenta registrada: Corretor de Arquivos CRF (Edições)
+2026-07-21 14:20:33,872 - backend.core.registry - INFO - Ferramenta registrada: Ordenar Quadras e Lotes (Excel) (Planilhas)
+2026-07-21 14:20:33,873 - backend.core.registry - INFO - Ferramenta registrada: Analisar Ordem de Confrontantes (Análises)
